@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>messages</title>
+</head>
+<style>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+    body{
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        margin: auto;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .message-container{
+        position: relative;
+        cursor: pointer;
+    }
+
+    .dropdown{
+        background-color: teal;
+        padding: 10px 15px;
+        min-height: 45px;
+        border: 4px solid lightgray;
+        border-radius: 35px;
+    }
+
+    .alert{
+        position: absolute;
+        top: -20px;
+        left: 250px;
+        width: 15px;
+        height: 15px;
+        border-radius: 25px;
+        background-color: teal;
+    }
+
+    .messages{
+        position: absolute;
+        display: none;
+        min-width: 200px;
+        top: 65px;
+        left: 40px;
+        z-index: 4;
+    }
+
+    .message{
+        display: flex;
+        justify-content: center;
+        background-color: lightgray;
+        position: relative;
+        margin: 5px;
+        padding: 15px;
+        border: 4px solid teal;
+        border-radius: 15px;
+    }
+
+    .close{
+        position: relative;
+        top: -15px;
+        left: 8px;
+        
+    }
+</style>
+<body>
+<div class="message-container" id="message-container">
+    <div class="dropdown" id="drop-down">
+        <h1>Click for Messages</h1>
+    </div>
+    <div class="alert"></div>
+    <div class="messages" id="messages">
+        <div class="message"><p> You have a new message</p><span class="close">x</span></div>
+        <div class="message"><p> You have a new message</p><span class="close">x</span></div>
+        <div class="message"><p> You have a new message</p><span class="close">x</span></div>
+    </div>
+</div>
+    <script>
+        const container = document.getElementById("message-container");
+        const dropDown = document.getElementById("drop-down");
+        const messages = document.getElementById("messages");
+        const message = document.getElementsByClassName("message");
+        const close = document.getElementsByClassName("close");
+        
+        container.addEventListener("click", e => {
+            if(e.target === dropDown){
+                if(messages.style.display = "none"){
+                    messages.style.display = "block";
+                }else if(messages.style.display = "block"){
+                    messages.style.display = "none;"
+                }
+            }      
+        })
+    </script>
+</body>
+</html>
